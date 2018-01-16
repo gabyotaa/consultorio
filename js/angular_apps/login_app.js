@@ -1,0 +1,1 @@
+var login_app = angular.module('login', ['ngCookies']);

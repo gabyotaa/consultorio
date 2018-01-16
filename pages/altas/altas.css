@@ -1,0 +1,11 @@
+.form-group{
+	padding-top:30px!important;
+}
+.table > tbody > tr:hover {
+  background-color: #b4caea;
+  cursor: pointer;
+}
+
+.table{
+	background-color: white;
+}

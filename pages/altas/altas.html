@@ -1,0 +1,147 @@
+<link href="../altas/altas.css" rel="stylesheet">
+<div class="row" ng-init='getMatches()'>
+	<div class="col-md-12">
+		<h1 class="text-center">Nueva Receta</h1>
+        <h4>Buscar Paciente</h4>
+        <div class="col-md-6">
+              <div class="form-group">
+                    <label for="txtNombre" class="col-sm-2 control-label">Nombre</label>
+                    <div class="col-sm-10">
+                      <input type="text" class="form-control " id="txtNombre" name="txtNombre" placeholder="Nombre ape_p ape_m" list="pacientes" ng-model="text_search" ng-change="getMatches()">
+                      <datalist id="pacientes" >
+                      		<option  data-ng-repeat="paciente in pacientes" value="{{paciente.NOMBRE_COMPLETO}}" data-id="{{paciente.ID}}" data-fecha_nac="{{paciente.FECHA_NAC}}" data-telefono='{{paciente.TELEFONO}}' data-nombre='{{paciente.NOMBRE}}' data-ape_p='{{paciente.APE_P}}' data-ape_m='{{paciente.APE_M}}' > 
+                      </datalist>
+                      <!--<md-autocomplete required md-input-name="autocomplete" md-selected-item="selectedItem" md-search-text="searchText" md-items="item in getMatches(searchText)" md-item-text="item.display">
+					    	<md-item-template>
+					      		<span md-highlight-text="searchText">{{item.nombre_completo}}</span>
+					    	</md-item-template>
+					    	<md-not-found>
+    							No matches found.
+  							</md-not-found>
+					    	<div ng-messages="autocompleteForm.autocomplete.$error">
+					      		<div ng-message="required">This field is required</div>
+					    	</div>
+					  </md-autocomplete>-->
+					  
+                    </div>
+              </div>
+        </div>
+        <div class="col-md-3">
+        	<div class="form-group">
+        		<label for="txtFechaNac" class="col-sm-4 control-label">Fecha Nac.</label>
+        		<div class="col-sm-8">
+	        		<input type="text" class="form-control " id="txtFechaNac" name="txtFechaNac" placeholder="Fecha Nacimiento"  value="{{paciente_fecha_nac}}" disabled>
+	        	</div>
+        	</div>
+        	
+        </div>
+        <div class="col-md-3">
+        	<div class="form-group">
+        		<label for="txtTelefono" class="col-sm-4 control-label">Telefono</label>
+        		<div class="col-sm-8">
+	        		<input type="text" class="form-control " id="txtTelefono" name="txtTelefono" placeholder="Telefono"  value="{{paciente_telefono}}" disabled>
+	        	</div>
+        	</div>
+        	
+        </div>
+     </div>
+
+</div>
+<div class="row" style="padding-top:20px" ng-show="datos_generales_mostrar">
+	<form id='frmConsulta' name="frmConsulta">
+	<div class="col-md-12">
+		
+		<div class="col-md-6">
+			  <h3 class="text-center">Datos Generales</h3>
+              <div class="form-group">
+                <label class="col-sm-2 control-label">Fecha</label>
+				<div class="col-md-10">
+				<div class="input-group class" moment-picker="fecha" format="MM/DD/YYYY">
+			   	 	<span class="input-group-addon">
+			        	<i class="glyphicon glyphicon-calendar"></i>
+			    	</span>
+			    	<input class="form-control" placeholder="Select a date" ng-model="fecha" ng-model-options="{ updateOn: 'blur' }" required>
+				</div>
+				</div>
+              </div>
+			  <div class="form-group">
+        		<label for="txtPeso" class="col-sm-2 control-label">Peso</label>
+        		<div class="col-sm-4">
+	        		<input type="number" class="form-control " id="txtPeso" name="txtPeso" placeholder="peso" ng-model="peso" required>
+	        	</div>
+	        	<label for="txtAltura" class="col-sm-2 control-label">Altura</label>
+        		<div class="col-sm-4">
+	        		<input type="number" class="form-control " id="txtAltura" name="txtAltura" placeholder="altura" ng-model="altura" required>
+	        	</div>
+
+        	  </div>
+        	  <div class="form-group">
+        		<label for="txtSys" class="col-sm-2 control-label">Presion</label>
+        		<div class="col-sm-4">
+	        		<input type="number" class="form-control " id="txtSys" name="txtSys" placeholder="Sys" ng-model="sys" required>
+	        	</div>
+	        	<label for="txtAltura" class="col-sm-2 control-label">/</label>
+        		<div class="col-sm-4">
+	        		<input type="number" class="form-control " id="txtDyas" name="txtDyas" placeholder="dyas" ng-model="dyas" required>
+	        	</div>
+
+        	  </div>
+        	  <br>
+        	  <h3 class="text-center">Diagnostico</h3>
+        	  <div class="form-group">
+				    <textarea class="form-control" placeholder="Diagnostico" id="txtDiagnostico" name="txtDiagnostico" ng-model="diagnostico" maxlength="255" required></textarea>
+			  </div>
+
+        </div>
+        <div class="col-md-6">
+			  <h3 class="text-center">Medicamentos</h3>
+              <table class="table">
+	          	<thead>
+		            <tr>
+		              <th>#</th>
+		              <th>Medicamento</th>
+		              <th>Dosis</th>
+		              <th>Unidad</th>
+		              <th>Frecuencia</th>
+		              <th></th>
+		            </tr>
+	          	</thead>
+          		<tbody>
+            		<tr ng-repeat="item in lista">
+		              <td style="cursor: not-allowed;">
+		                {{$index + 1}}
+		              </td>
+		              <td editable-td row="{{$index}}" field="nombre" tipo="text">
+		                {{item.nombre}}
+		              </td>
+		              <td editable-td row="{{$index}}" field="dosis" tipo="number">
+		                {{item.dosis}}
+		              </td>
+		              <td editable-td row="{{$index}}" field="unidad_dosis" tipo="text">
+		                {{item.unidad_dosis}}
+		              </td>
+		               <td editable-td row="{{$index}}" field="frecuencia" tipo="hours">
+		                {{item.frecuencia}}
+		              </td>
+		              <td>
+		                <span class="glyphicon glyphicon-trash" style="cursor: pointer;" ng-click='eliminar_medicamento($index)' />
+		              </td>
+		            </tr>
+          		</tbody>
+        	  </table>
+        	  <div class="btn-group">
+		          <button class="btn btn-default" ng-click='agregar_medicamento()'>
+		            <span class="glyphicon glyphicon-plus"></span>
+		          </button>
+		          <!--<button type="button" class="btn btn-default" ng-click='recuperarValores()'>Recuperar Valores</button>-->
+		       </div>
+		       
+
+        </div>
+
+     </div>
+     <div class="col-md-12 text-right">
+     	<button type="button" class="btn btn-primary" ng-disabled="!frmConsulta.$valid" ng-click='guardar_consulta()'><span class="glyphicon glyphicon-floppy-disk" ></span>Guardar</button>	
+     </div>
+     </form>
+</div>

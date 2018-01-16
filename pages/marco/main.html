@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="Expires" content="0">
+    <meta http-equiv="Last-Modified" content="0">
+    <meta http-equiv="Cache-Control" content="no-cache, mustrevalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+
+    <title>Consultorio</title>
+    <link href="../../css/bootstrap.min.css" rel="stylesheet">
+    <!--<link rel="stylesheet" href="../../css/datetimepicker.css"/>-->
+    <link href="main.css" rel="stylesheet">
+    <link href="menu.css" rel="stylesheet">
+    <script src="../../js/jquery.min.js"></script>
+    <script src="../../js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-route.js"></script>
+    <!--FECHAS-->
+    <script src="//cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.6/moment-with-locales.js"></script>
+    <script src="../../js/angular-moment-picker.min.js"></script>
+    <link href="../../css/angular-moment-picker.min.css" rel="stylesheet">
+    <!--NOTIFICACIONES-->
+    <script src="../../js/angular-notify.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="../../css/angular-notify-texture.css" rel="stylesheet">
+    <!--<script src="../../js/angular_apps/menu_app.js"></script>
+    <script src="../../js/angular_controllers/menu_controller.js"></script>-->
+    <!--<script src="../../js/datetimepicker.js"></script>
+    <script src="../../js/datetimepicker.templates.js"></script>-->
+    <script src="../../js/angular_apps/main_app.js"></script>
+    <script src="../../js/angular_controllers/menu_controller.js"></script>
+    <script src="../../js/angular_config/main_config.js"></script>
+    <script src="../../js/angular_controllers/altas_controller.js"></script>
+    
+   
+  </head>
+  <body class="navbar-fixed sidebar-nav fixed-nav" ng-app="main">
+    <div class="">
+      <div class="row">
+        <div class="col-sm-3 col-md-2">
+            
+            <div class="sidebar" id="barra_menu"  ng-controller="menu" ng-init="check_session()"  ng-include="'menu.html'"></div>
+        </div>
+        <!--<div ng-app="myapp">
+           <div ng-view></div>
+        </div>-->
+        <div class="col-sm-9 col-md-10" >
+            <div class="well" id="load_contenido" >
+                <ng-view></ng-view>
+                <div notifybar style="position:absolute;top:0;right:0"></div>
+            </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Main content -->
+    <!--<main class="main">
+      <div class="container-fluid">
+        <div class="animated fadeIn" id="load_contenido" style="min-height: 100vh;">
+        </div>
+      </div>
+    </main>-->
+
+    <!--<footer class="footer">
+      <span class="text-left">
+        © 2016 It frio express.
+      </span>
+      <span class="float-xs-right">
+        Powered by <a href="http://www.frioexpress.com" target="_blank">Frío express</a>
+        
+      </span>
+    </footer>-->
+  </body>
+  
+  <!-- Custom scripts required by this view -->
+  <script type="text/javascript">
+  //$(document).ready(function() {
+   // $('#load_contenido').load('pages/dashboard/dashboard.html');
+   //$('#load_contenido').load('pages/dashboard/dashboard.html');
+    /*$('#barra_menu').load('menu.html', function(){
+      /*var type_user = sessionStorage.getItem('tipo_usr');
+      if(type_user!=="ADM"){
+        $('.only_adm').hide();
+      }*/
+    //});
+    //$('#barra_superior').load('barra.html');
+
+  //});
+  </script>
+</html>

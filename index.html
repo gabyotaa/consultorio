@@ -1,0 +1,35 @@
+
+  <!DOCTYPE html>
+  <html>
+  <head>
+  	<title>Consultorio</title>
+  	<link href="css/bootstrap.min.css" rel="stylesheet">
+  	<link href="css/login.css" rel="stylesheet">
+  	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular-cookies.js"></script>
+	<script src="js/angular_apps/login_app.js"></script>
+	<script src="js/angular_controllers/login_controller.js"></script>
+  </head>
+  <body>
+  	<div class="container">
+		<div id="login-box">
+			<div class="logo">
+				<img src="img/doctor.jpg" width="150" class="img img-responsive img-circle center-block"/>
+				<h1 class="logo-caption"><span class="tweak">L</span>ogin</h1>
+			</div><!-- /.logo -->
+			<div class="controls" ng-app="login" ng-controller="login">
+				<input type="text" name="email" placeholder="Email" class="form-control" ng-model="email"/>
+				<input type="password" name="password" placeholder="Password" class="form-control" ng-model="password"/>
+				<div class="text-center" id="mensaje" name="mensaje" ></div>
+				<button type="button" class="btn btn-default btn-block btn-custom" ng-click="login()" >Login</button>
+			</div><!-- /.controls -->
+		</div><!-- /#login-box -->
+	</div><!-- /.container -->
+	<div id="particles-js"></div>
+	
+	<script src="js/animacion_login.js"></script>
+	<!--<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>-->
+  </body>
+  </html>
